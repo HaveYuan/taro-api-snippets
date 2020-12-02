@@ -1,0 +1,964 @@
+{
+    "Taro-Base64转ArrayBuffer": {
+        "prefix": "Taro.base64ToArrayBuffer()",
+        "body": [
+            "Taro.base64ToArrayBuffer(${1:base64})"
+        ],
+        "description": "Taro-Base64转ArrayBuffer"
+    },
+    "Taro-ArrayBuffer转Base64": {
+        "prefix": "Taro.arrayBufferToBase64()",
+        "body": [
+            "Taro.arrayBufferToBase64(${1:arrayBuffer})"
+        ],
+        "description": "Taro-ArrayBuffer转Base64"
+    },
+    "Taro-发起网络请求": {
+        "prefix": "Taro.request()",
+        "body": [
+            "Taro.request({",
+            "\turl: 'https://www.example.com/request', //仅为示例，并非真实接口地址。",
+            "\tdata: {",
+            "\t\ttext: 'Taro.request'",
+            "\t},",
+            "\theader: {",
+            "\t\t'custom-header': 'hello' //自定义请求头信息",
+            "\t},",
+            "\tsuccess: (res) => {",
+            "\t\tconsole.log(res.data);",
+            "\t\tthis.text = 'request success';",
+            "\t}",
+            "});$0"
+        ],
+        "description": "Taro-发起网络请求"
+    },
+    "Taro-选择图片": {
+        "prefix": "Taro.chooseImage()",
+        "body": [
+            "Taro.chooseImage({",
+            "\tsuccess: (chooseImageRes) => {",
+            "\t\tconst tempFilePaths = chooseImageRes.tempFilePaths;",
+            "\t\tTaro.uploadFile({",
+            "\t\t\turl: 'https://www.example.com/upload', //仅为示例，非真实的接口地址",
+            "\t\t\tfilePath: tempFilePaths[0],",
+            "\t\t\tname: 'file',",
+            "\t\t\tformData: {",
+            "\t\t\t\t'user': 'test'",
+            "\t\t\t},",
+            "\t\t\tsuccess: (uploadFileRes) => {",
+            "\t\t\t\tconsole.log(uploadFileRes.data);",
+            "\t\t\t}",
+            "\t\t});",
+            "\t}",
+            "});$0"
+        ],
+        "description": "Taro-选择图片"
+    },
+    "Taro-上传文件": {
+        "prefix": "Taro.uploadFile()",
+        "body": [
+            "Taro.uploadFile({",
+            "\turl: 'https://www.example.com/upload', //仅为示例，非真实的接口地址",
+            "\tfilePath: tempFilePaths[0],",
+            "\tname: 'file',",
+            "\tformData: {",
+            "\t\t'user': 'test'",
+            "\t},",
+            "\tsuccess: (uploadFileRes) => {",
+            "\t\tconsole.log(uploadFileRes.data);",
+            "\t}",
+            "});$0"
+        ],
+        "description": "Taro-上传文件"
+    },
+    "Taro-下载文件": {
+        "prefix": "Taro.downloadFile()",
+        "body": [
+            "Taro.downloadFile({",
+            "\turl: 'https://www.example.com/file/test', //仅为示例，并非真实的资源",
+            "\tsuccess: (res) => {",
+            "\t\tif (res.statusCode === 200) {",
+            "\t\t\tconsole.log('下载成功');",
+            "\t\t}",
+            "\t}",
+            "});$0"
+        ],
+        "description": "Taro-下载文件"
+    },
+    "Taro-创建一个 WebSocket 连接": {
+        "prefix": "Taro.connectSocket()",
+        "body": [
+            "Taro.downloadFile({",
+            "\turl: 'https://www.example.com/file/test', //仅为示例，并非真实的资源",
+            "\tsuccess: (res) => {",
+            "\t\tif (res.statusCode === 200) {",
+            "\t\t\tconsole.log('下载成功');",
+            "\t\t}",
+            "\t}",
+            "});$0"
+        ],
+        "description": "Taro-创建一个 WebSocket 连接"
+    },
+    "Taro-创建一个 WebSocket 连接": {
+        "prefix": "Taro.connectSocket()",
+        "body": [
+            "Taro.connectSocket({",
+            "\turl: 'wss://www.example.com/socket',",
+            "\tdata() {",
+            "\t\treturn {",
+            "\t\t\tx: '',",
+            "\t\t\ty: ''",
+            "\t\t};",
+            "\t},",
+            "\theader: {",
+            "\t\t'content-type': 'application/json'",
+            "\t},",
+            "\tprotocols: ['protocol1'],",
+            "\tmethod: 'GET'",
+            "});$0"
+        ],
+        "description": "Taro-创建一个 WebSocket 连接"
+    },
+    "Taro-监听WebSocket连接打开事件": {
+        "prefix": "Taro.onSocketOpen()",
+        "body": [
+            "Taro.onSocketOpen(function (res) {",
+            "\tconsole.log('WebSocket连接已打开！');",
+            "});$0"
+        ],
+        "description": "Taro-监听WebSocket连接打开事件"
+    },
+    "Taro-监听WebSocket错误": {
+        "prefix": "Taro.onSocketError()",
+        "body": [
+            "Taro.onSocketError(function (res) {",
+            "\tconsole.log('WebSocket连接已打开！');",
+            "});$0"
+        ],
+        "description": "Taro-监听WebSocket错误"
+    },
+    "Taro-监听WebSocket接受到服务器的消息事件": {
+        "prefix": "Taro.onSocketMessage()",
+        "body": [
+            "Taro.onSocketMessage(function (res) {",
+            "\tconsole.log('收到服务器内容：' + res.data);",
+            "});$0"
+        ],
+        "description": "Taro-监听WebSocket接受到服务器的消息事件"
+    },
+    "Taro-WebSocket发送数据": {
+        "prefix": "Taro.sendSocketMessage()",
+        "body": [
+            "Taro.sendSocketMessage({",
+            "\tdata: msg$0",
+            "});"
+        ],
+        "description": "Taro-WebSocket发送数据"
+    },
+    "Taro-关闭 WebSocket 连接": {
+        "prefix": "Taro.closeSocket()",
+        "body": [
+            "Taro.closeSocket()"
+        ],
+        "description": "Taro-关闭 WebSocket 连接"
+    },
+    "Taro-监听WebSocket关闭": {
+        "prefix": "Taro.onSocketClose()",
+        "body": [
+            "Taro.onSocketClose(function (res) {",
+                "\tconsole.log('WebSocket 已关闭！');",
+            "});$0"
+        ],
+        "description": "Taro-监听WebSocket关闭"
+    },
+    "Taro-跳转到应用内的某个页面": {
+        "prefix": "Taro.navigateTo()",
+        "body": [
+            "Taro.navigateTo({",
+                "\t url: 'test?id=1&name=Taro$0';",
+            "});$0"
+        ],
+        "description": "Taro-跳转到应用内的某个页面"
+    },
+    "Taro-关闭当前页面跳转到应用内的某个页面": {
+        "prefix": "Taro.redirectTo()",
+        "body": [
+            "Taro.redirectTo({",
+                "\t url: 'test?id=1&name=Taro$0';",
+            "});$0"
+        ],
+        "description": "Taro-关闭当前页面跳转到应用内的某个页面"
+    },
+    "Taro-关闭所有页面，打开到应用内的某个页面": {
+        "prefix": "Taro.reLaunch()",
+        "body": [
+            "Taro.reLaunch({",
+                "\t url: 'test?id=1&name=Taro$0';",
+            "});$0"
+        ],
+        "description": "Taro-关闭所有页面，打开到应用内的某个页面"
+    },
+    "Taro-跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面": {
+        "prefix": "Taro.switchTab()",
+        "body": [
+            "Taro.switchTab({",
+                "\t url: '/pages/index/index$0';",
+            "});$0"
+        ],
+        "description": "Taro-跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面"
+    },
+    "Taro-关闭当前页面，返回上一页面或多级页面": {
+        "prefix": "Taro.navigateBack()",
+        "body": [
+            "Taro.navigateBack({",
+                "\t delta: 2$0",
+            "});"
+        ],
+        "description": "Taro-关闭当前页面，返回上一页面或多级页面"
+    },
+    "Taro-关闭当前页面，返回上一页面或多级页面": {
+        "prefix": "Taro.navigateBack()",
+        "body": [
+            "Taro.navigateBack({",
+                "\t delta: 2$0",
+            "});"
+        ],
+        "description": "Taro-关闭当前页面，返回上一页面或多级页面"
+    },
+    "Taro-将数据存储在本地缓存中指定的 key 中,异步接口": {
+        "prefix": "Taro.setStorage()",
+        "body": [
+            "Taro.setStorage({",
+                "\tkey: 'storage_key',",
+                "\tdata: 'hello',",
+                "\tsuccess: function () {",
+                    "\t\tconsole.log('success')$0;",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-将数据存储在本地缓存中指定的 key 中"
+    },
+    "Taro-将 data 存储在本地缓存中指定的 key 中,同步接口": {
+        "prefix": "Taro.setStorageSync()",
+        "body": [
+            "Taro.setStorageSync('$0storage_key', '$1hello')"
+        ],
+        "description": "Taro-将 data 存储在本地缓存中指定的 key 中"
+    },
+    "Taro-从本地缓存中异步获取指定 key 对应的内容": {
+        "prefix": "Taro.getStorage()",
+        "body": [
+            "Taro.getStorage({",
+                "\tkey: 'storage_key',",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.data)$0;",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-从本地缓存中异步获取指定 key 对应的内容"
+    },
+    "Taro-从本地缓存中同步获取指定 key 对应的内容": {
+        "prefix": "Taro.getStorageSync()",
+        "body": [
+            "Taro.getStorageSync('storage_key$0')"
+        ],
+        "description": "Taro-从本地缓存中同步获取指定 key 对应的内容"
+    },
+    "Taro-异步获取当前 storage 的相关信息": {
+        "prefix": "Taro.getStorageInfo()",
+        "body": [
+            "Taro.getStorageInfo({",
+                "\tsuccess: function (res) {",
+                    "\tconsole.log(res.keys);",
+                    "\tconsole.log(res.currentSize);",
+                    "\tconsole.log(res.limitSize);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-异步获取当前 storage 的相关信息"
+    },
+    "Taro-同步获取当前 storage 的相关信息": {
+        "prefix": "Taro.getStorageInfoSync()",
+        "body": [
+            "Taro.getStorageInfoSync()"
+        ],
+        "description": "Taro-同步获取当前 storage 的相关信息"
+    },
+    "Taro-从本地缓存中异步移除指定 key": {
+        "prefix": "Taro.removeStorage()",
+        "body": [
+            "Taro.removeStorage({",
+                "\tkey: 'storage_key',",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('success');",
+                "\t}",
+            "});$0"
+        ],
+        "description": "Taro-从本地缓存中异步移除指定 key"
+    },
+    "Taro-从本地缓存中同步移除指定 key。": {
+        "prefix": "Taro.removeStorageSync()",
+        "body": [
+            "Taro.removeStorageSync('storage_key');"
+        ],
+        "description": "Taro-从本地缓存中同步移除指定 key。"
+    },
+    "Taro-清理本地数据缓存": {
+        "prefix": "Taro.clearStorage()",
+        "body": [
+            "Taro.clearStorage();"
+        ],
+        "description": "Taro-清理本地数据缓存"
+    },
+    "Taro-同步清理本地数据缓存": {
+        "prefix": "Taro.clearStorage()",
+        "body": [
+            "Taro.clearStorage();"
+        ],
+        "description": "Taro-同步清理本地数据缓存"
+    },
+    "Taro-获取当前的地理位置": {
+        "prefix": "Taro.getLocation()",
+        "body": [
+            "Taro.getLocation({",
+                "\ttype: 'wgs84',",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('当前位置的经度：' + res.longitude);",
+                    "\t\tconsole.log('当前位置的纬度：' + res.latitude);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-获取当前的地理位置"
+    },
+    "Taro-打开地图选择位置": {
+        "prefix": "Taro.chooseLocation()",
+        "body": [
+            "Taro.chooseLocation({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('位置名称：' + res.name);",
+                    "\t\tconsole.log('详细地址：' + res.address);",
+                    "\t\tconsole.log('纬度：' + res.latitude);",
+                    "\t\tconsole.log('经度：' + res.longitude);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-打开地图选择位置"
+    },
+    "Taro-使用应用内置地图查看位置": {
+        "prefix": "Taro.getLocation()",
+        "body": [
+            "Taro.getLocation({",
+                "\ttype: 'gcj02', //返回可以用于Taro.openLocation的经纬度",
+                "\tsuccess: function (res) {",
+                    "\t\tconst latitude = res.latitude;",
+                    "\t\tconst longitude = res.longitude;",
+                    "\t\tTaro.openLocation({",
+                        "\t\t\tlatitude: latitude,",
+                        "\t\t\tlongitude: longitude,",
+                        "\t\t\tsuccess: function () {",
+                            "\t\t\t\tconsole.log('success');",
+                        "\t\t\t}",
+                    "\t\t});",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-使用应用内置地图查看位置"
+    },
+    "Taro-预览图片": {
+        "prefix": "Taro.previewImage()",
+        "body": [
+            "Taro.previewImage({",
+                "\turls: res.tempFilePaths,",
+                "\tlongPressActions: {",
+                    "\t\titemList: ['发送给朋友', '保存图片', '收藏'],",
+                    "\t\tsuccess: function(data) {",
+                        "\t\t\tconsole.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');",
+                    "\t\t},",
+                    "\t\tfail: function(err) {",
+                        "\t\t\tconsole.log(err.errMsg);",
+                    "\t\t}",
+                "\t}",
+            "});$0"
+        ],
+        "description": "Taro-预览图片"
+    },
+    "Taro-获取图片信息": {
+        "prefix": "Taro.getImageInfo()",
+        "body": [
+            "Taro.getImageInfo({",
+                "\tsrc: res.tempFilePaths[0],",
+                "\tsuccess: function (image) {",
+                    "\t\tconsole.log(image.width);",
+                    "\t\tconsole.log(image.height);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-获取图片信息"
+    },
+    "Taro-保存图片到系统相册": {
+        "prefix": "Taro.saveImageToPhotosAlbum()",
+        "body": [
+            "Taro.saveImageToPhotosAlbum({",
+                "\tfilePath: res.tempFilePaths[0],",
+                "\tsuccess: function () {",
+                    "\t\tconsole.log('save success');",
+                "\t}",
+            "});$0"
+        ],
+        "description": "Taro-保存图片到系统相册"
+    },
+    "Taro-压缩图片接口，可选压缩质量": {
+        "prefix": "Taro.compressImage()",
+        "body": [
+            "Taro.compressImage({",
+                "\tsrc: '/static/logo.jpg',",
+                "\tquality: 80,",
+                "\tsuccess: res => {",
+                    "\t\tconsole.log(res.tempFilePath)",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-压缩图片接口，可选压缩质量"
+    },
+    "Taro-获取全局唯一的录音管理器 recorderManager": {
+        "prefix": "Taro.getRecorderManager()",
+        "body": [
+            "const recorderManager = Taro.getRecorderManager();//其他详细请查看官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/media/recorder/RecorderManager"
+        ],
+        "description": "Taro-获取全局唯一的录音管理器 recorderManager"
+    },
+    "Taro-获取全局唯一的背景音频管理器 backgroundAudioManager": {
+        "prefix": "Taro.getBackgroundAudioManager()",
+        "body": [
+            "Taro.getBackgroundAudioManager();//其他详细请查看官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/media/background-audio/BackgroundAudioManager"
+        ],
+        "description": "Taro-获取全局唯一的背景音频管理器 backgroundAudioManager"
+    },
+    "Taro-创建并返回内部 audio 上下文 innerAudioContext 对象": {
+        "prefix": "Taro.createInnerAudioContext()",
+        "body": [
+            "const innerAudioContext = Taro.createInnerAudioContext();",
+            "innerAudioContext.autoplay = true;",
+            "innerAudioContext.src = 'https://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46;",
+            "innerAudioContext.onPlay(() => {",
+                "\tconsole.log('开始播放');",
+            "});",
+            "innerAudioContext.onError((res) => {",
+                "\tconsole.log(res.errMsg);",
+                "\tconsole.log(res.errCode);",
+            "});$0"
+        ],
+        "description": "Taro-创建并返回内部 audio 上下文 innerAudioContext 对象"
+    },
+    "Taro-拍摄视频或从手机相册中选视频": {
+        "prefix": "Taro.chooseVideo()",
+        "body": [
+            "Taro.chooseVideo({",
+                "\tcount: 1,",
+                "\tsourceType: ['camera', 'album'],",
+                "\tsuccess: function (res) {",
+                    "\t\tself.src = res.tempFilePath;",
+                "\t}",
+            "});$0"
+        ],
+        "description": "Taro-拍摄视频或从手机相册中选视频"
+    },
+    "Taro-保存视频到系统相册": {
+        "prefix": "Taro.saveVideoToPhotosAlbum()",
+        "body": [
+            "Taro.saveVideoToPhotosAlbum({",
+                "\tfilePath: res.tempFilePath,",
+                "\tsuccess: function () {",
+                    "\t\tconsole.log('save success');",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-保存视频到系统相册"
+    },
+    "Taro-创建并返回 video 上下文 videoContext 对象": {
+        "prefix": "Taro.createVideoContext(videoId, this)",
+        "body": [
+            "this.videoContext = Taro.createVideoContext('myVideo')//更多请查找官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/media/video/VideoContext"
+        ],
+        "description": "Taro-创建并返回 video 上下文 videoContext 对象"
+    },
+    "Taro-创建并返回 camera 组件的上下文 cameraContext 对象": {
+        "prefix": "Taro.createCameraContext()",
+        "body": [
+            "Taro.createCameraContext()//更多请查找官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/media/camera/CameraContext"
+        ],
+        "description": "Taro-创建并返回 camera 组件的上下文 cameraContext 对象"
+    },
+    "Taro-": {
+        "prefix": "Taro.createLivePlayerContext(livePlayerId, this)",
+        "body": [
+            "Taro.createLivePlayerContext(livePlayerId, this)//更多请查找官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/media/live/createLivePlayerContext"
+        ],
+        "description": "Taro-"
+    },
+    "Taro-创建 live-pusher 上下文 livePusherContext 对象": {
+        "prefix": "Taro.createLivePusherContext(livePusherId, this)",
+        "body": [
+            "Taro.createLivePusherContext(livePusherId, this)//更多请查找官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/media/live/LivePusherContext"
+        ],
+        "description": "Taro-创建 live-pusher 上下文 livePusherContext 对象"
+    },
+    "Taro-获取系统信息": {
+        "prefix": "Taro.getSystemInfo(OBJECT)",
+        "body": [
+            "Taro.getSystemInfo({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.model);",
+                    "\t\tconsole.log(res.pixelRatio);",
+                    "\t\tconsole.log(res.windowWidth);",
+                    "\t\tconsole.log(res.windowHeight);",
+                    "\t\tconsole.log(res.language);",
+                    "\t\tconsole.log(res.version);",
+                    "\t\tconsole.log(res.platform);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-获取系统信息"
+    },
+    "Taro-获取系统信息同步接口": {
+        "prefix": "Taro.getSystemInfoSync()",
+        "body": [
+            "const res = Taro.getSystemInfoSync();",
+            "console.log(res.model);",
+            "console.log(res.pixelRatio);",
+            "console.log(res.windowWidth);",
+            "console.log(res.windowHeight);",
+            "console.log(res.language);",
+            "console.log(res.version);",
+            "console.log(res.platform);"
+        ],
+        "description": "Taro-获取系统信息同步接口"
+    },
+    "Taro-判断应用的 API，回调，参数，组件等是否在当前版本可用": {
+        "prefix": "Taro.canIUse(String)",
+        "body": [
+            "Taro.canIUse('getSystemInfoSync.return.screenWidth');",
+            "Taro.canIUse('getSystemInfo.success.screenWidth');",
+            "Taro.canIUse('showToast.object.image');",
+            "Taro.canIUse('request.object.method.GET');",
+            "Taro.canIUse('live-player');",
+            "Taro.canIUse('text.selectable');",
+            "Taro.canIUse('button.open-type.contact');"
+        ],
+        "description": "Taro-判断应用的 API，回调，参数，组件等是否在当前版本可用"
+    },
+    "Taro-监听内存不足告警事件": {
+        "prefix": "Taro.onMemoryWarning()",
+        "body": [
+            "Taro.onMemoryWarning(function (){",
+                "\tconsole.log('onMemoryWarningReceive')$0",
+            "});"
+        ],
+        "description": "Taro-监听内存不足告警事件"
+    },
+    "Taro-获取网络类型": {
+        "prefix": "Taro.getNetworkType(OBJECT)",
+        "body": [
+            "Taro.getNetworkType({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.networkType);$0",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-获取网络类型"
+    },
+    "Taro-监听网络状态变化": {
+        "prefix": "Taro.onNetworkStatusChange()",
+        "body": [
+            "Taro.onNetworkStatusChange(function (res) {",
+                "\tconsole.log(res.isConnected);",
+                "\tconsole.log(res.networkType);$0",
+            "});"
+        ],
+        "description": "Taro-"
+    },
+    "Taro-监听加速度数据": {
+        "prefix": "Taro.onAccelerometerChange(CALLBACK)",
+        "body": [
+            "Taro.onAccelerometerChange(function (res) {",
+                "\tconsole.log(res.x);",
+                "\tconsole.log(res.y);",
+                "\tconsole.log(res.z);",
+            "});"
+        ],
+        "description": "Taro-监听加速度数据"
+    },
+    "Taro-开始监听加速度数据": {
+        "prefix": "Taro.startAccelerometer()",
+        "body": [
+            "Taro.startAccelerometer();"
+        ],
+        "description": "Taro-开始监听加速度数据"
+    },
+    "Taro-停止监听加速度数据": {
+        "prefix": "Taro.stopAccelerometer()",
+        "body": [
+            "Taro.stopAccelerometer();"
+        ],
+        "description": "Taro-停止监听加速度数据"
+    },
+    "Taro-监听罗盘数据": {
+        "prefix": "Taro.onCompassChange(CALLBACK)",
+        "body": [
+            "Taro.onCompassChange(function (res) {",
+                "\tconsole.log(res.direction);$0",
+            "});//更多关于设备api请访问官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/device/compass/onCompassChange"
+        ],
+        "description": "Taro-监听罗盘数据"
+    },
+    "Taro-开始监听罗盘数据": {
+        "prefix": "Taro.startCompass(OBJECT)",
+        "body": [
+            "Taro.startCompass()//更多关于设备api请访问官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/device/compass/onCompassChange"
+        ],
+        "description": "Taro-开始监听罗盘数据"
+    },
+    "Taro-停止监听罗盘数据": {
+        "prefix": "Taro.stopCompass()",
+        "body": [
+            "Taro.stopCompass()//更多关于设备api请访问官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/device/compass/onCompassChange"
+        ],
+        "description": "Taro-停止监听罗盘数据"
+    },
+    "Taro-监听陀螺仪数据变化事件": {
+        "prefix": "Taro.onGyroscopeChange()",
+        "body": [
+            "Taro.onGyroscopeChange(CALLBACK)//更多关于设备api请访问官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/device/compass/onCompassChange"
+        ],
+        "description": "Taro-监听陀螺仪数据变化事件"
+    },
+    "Taro-显示消息提示框": {
+        "prefix": "Taro.showToast()",
+        "body": [
+            "Taro.showToast({",
+                "\ttitle: '标题',",
+                "\tduration: 2000",
+            "});"
+        ],
+        "description": "Taro-显示消息提示框"
+    },
+    "Taro-隐藏消息提示框": {
+        "prefix": "Taro.hideToast()",
+        "body": [
+            "Taro.hideToast();"
+        ],
+        "description": "Taro-隐藏消息提示框"
+    },
+    "Taro-显示 loading 提示框": {
+        "prefix": "Taro.showLoading()",
+        "body": [
+            "Taro.showLoading({",
+                "\ttitle: '加载中'$0",
+            "});"
+        ],
+        "description": "Taro-显示 loading 提示框"
+    },
+    "Taro-隐藏 loading 提示框": {
+        "prefix": "Taro.hideLoading()",
+        "body": [
+            "Taro.hideLoading();"
+        ],
+        "description": "Taro-隐藏 loading 提示框"
+    },
+    "Taro-显示模态弹窗": {
+        "prefix": "Taro.showModal()",
+        "body": [
+            "Taro.showModal({",
+                "\ttitle: '提示',",
+                "\tcontent: '这是一个模态弹窗',",
+                "\tsuccess: function (res) {",
+                    "\t\tif (res.confirm) {",
+                        "\t\t\tconsole.log('用户点击确定');",
+                    "\t\t} else if (res.cancel) {",
+                        "\t\t\tconsole.log('用户点击取消');",
+                    "\t\t}",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-显示模态弹窗"
+    },
+    "Taro-​显示操作菜单": {
+        "prefix": "Taro.showActionSheet()",
+        "body": [
+            "Taro.showActionSheet({",
+                "\titemList: ['A', 'B', 'C'],",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('选中了第' + (res.tapIndex + 1) + '个按钮');",
+                "\t},",
+                "\tfail: function (res) {",
+                    "\t\tconsole.log(res.errMsg);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-​显示操作菜单"
+    },
+    "Taro-动态设置当前页面的标题": {
+        "prefix": "Taro.setNavigationBarTitle()",
+        "body": [
+            "Taro.setNavigationBarTitle({",
+                "\ttitle: '新的标题'$0",
+            "});"
+        ],
+        "description": "Taro-动态设置当前页面的标题"
+    },
+
+    "Taro-设置页面导航条颜色": {
+        "prefix": "Taro.setNavigationBarColor()",
+        "body": [
+            "Taro.setNavigationBarColor({",
+                "\tfrontColor: '#ffffff',",
+                "\tbackgroundColor: '#ff0000',",
+                "\tanimation: {",
+                    "\t\tduration: 400,",
+                    "\t\ttimingFunc: 'easeIn'",
+                "\t}",
+            "});$0"
+        ],
+        "description": "Taro-设置页面导航条颜色"
+    },
+    "Taro-在当前页面显示导航条加载动画": {
+        "prefix": "Taro.showNavigationBarLoading()",
+        "body": [
+            "Taro.showNavigationBarLoading()"
+        ],
+        "description": "Taro-在当前页面显示导航条加载动画"
+    },
+    "Taro-在当前页面隐藏导航条加载动画": {
+        "prefix": "Taro.hideNavigationBarLoading()",
+        "body": [
+            "Taro.hideNavigationBarLoading()"
+        ],
+        "description": "Taro-在当前页面隐藏导航条加载动画"
+    },
+    "Taro-动态设置 tabBar 某一项的内容": {
+        "prefix": "Taro.setTabBarItem()",
+        "body": [
+            "Taro.setTabBarItem({",
+                "\tindex: 0,",
+                "\ttext: 'text',",
+                "\ticonPath: '/path/to/iconPath',",
+                "\tselectedIconPath: '/path/to/selectedIconPath'",
+            "});"
+        ],
+        "description": "Taro-动态设置 tabBar 某一项的内容"
+    },
+    "Taro-动态设置 tabBar 的整体样式": {
+        "prefix": "Taro.setTabBarStyle()",
+        "body": [
+            "Taro.setTabBarStyle({",
+                "\tcolor: '#FF0000',",
+                "\tselectedColor: '#00FF00',",
+                "\tbackgroundColor: '#0000FF',",
+                "\tborderStyle: 'white'",
+            "});"
+        ],
+        "description": "Taro-动态设置 tabBar 的整体样式"
+    },
+    "Taro-隐藏 tabBar": {
+        "prefix": "Taro.hideTabBar()",
+        "body": [
+            "Taro.hideTabBar()"
+        ],
+        "description": "Taro-隐藏 tabBar"
+    },
+    "Taro-显示 tabBar": {
+        "prefix": "Taro.showTabBar()",
+        "body": [
+            "Taro.showTabBar()"
+        ],
+        "description": "Taro-显示 tabBar"
+    },
+    "Taro-为 tabBar 某一项的右上角添加文本": {
+        "prefix": "Taro.setTabBarBadge()",
+        "body": [
+            "Taro.setTabBarBadge({",
+                "index: 0,",
+                "text: '1'",
+            "});"
+        ],
+        "description": "Taro-为 tabBar 某一项的右上角添加文本"
+    },
+    "Taro-移除 tabBar 某一项右上角的文本": {
+        "prefix": "Taro.removeTabBarBadge()",
+        "body": [
+            "Taro.removeTabBarBadge({",
+                "index: 0,",
+            "});"
+        ],
+        "description": "Taro-移除 tabBar 某一项右上角的文本"
+    },
+    "Taro-显示 tabBar 某一项的右上角的红点": {
+        "prefix": "Taro.showTabBarRedDot(OBJECT)",
+        "body": [
+            "Taro.showTabBarRedDot({",
+                "index: 0,",
+            "});"
+        ],
+        "description": "Taro-显示 tabBar 某一项的右上角的红点"
+    },
+    "Taro-隐藏 tabBar 某一项的右上角的红点": {
+        "prefix": "Taro.hideTabBarRedDot(OBJECT)",
+        "body": [
+            "Taro.hideTabBarRedDot({",
+                "index: 0,",
+            "});"
+        ],
+        "description": "Taro-隐藏 tabBar 某一项的右上角的红点"
+    },
+    "Taro-动态设置窗口的背景色": {
+        "prefix": "Taro.setBackgroundColor()",
+        "body": [
+            "Taro.setBackgroundColor({",
+                "\tbackgroundColor: '#ffffff'$0",
+                "\backgroundColorTop: '#ffffff'",
+                "\backgroundColorBottom: '#ffffff'",
+            "});"
+        ],
+        "description": "Taro-动态设置窗口的背景色"
+    },
+    "Taro-动态设置下拉背景字体、loading 图的样式": {
+        "prefix": "Taro.setBackgroundTextStyle()",
+        "body": [
+            "Taro.setBackgroundTextStyle({",
+                "\ttextStyle: 'dark' // 下拉背景字体、loading 图的样式为dark$0",
+            "});"
+        ],
+        "description": "Taro-动态设置下拉背景字体、loading 图的样式"
+    },
+    "Taro-创建一个动画实例 animation": {
+        "prefix": "Taro.createAnimation()",
+        "body": [
+            "var animation = Taro.createAnimation({",
+                "\ttransformOrigin: '50% 50%',",
+                "\tduration: 1000,",
+                "\ttimingFunction: 'ease',",
+                "\tdelay: 0",
+            "})//官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/ui/animation/createAnimation"
+        ],
+        "description": "Taro-创建一个动画实例 animation"
+    },
+    "Taro-将页面滚动到目标位置": {
+        "prefix": "Taro.pageScrollTo()",
+        "body": [
+            "Taro.pageScrollTo({",
+                "\tscrollTop: 0,",
+                "\tduration: 300",
+            "});"
+        ],
+        "description": "Taro-将页面滚动到目标位置"
+    },
+    
+    "Taro-监听窗口尺寸变化事件": {
+        "prefix": "Taro.onWindowResize()",
+        "body": [
+            "Taro.onWindowResize((res) => {",
+                "\tconsole.log('变化后的窗口宽度=' + res.size.windowWidth)",
+                "\tconsole.log('变化后的窗口高度=' + res.size.windowHeight)",
+            "})"
+        ],
+        "description": "Taro-监听窗口尺寸变化事件"
+    },
+    "Taro-取消监听窗口尺寸变化事件": {
+        "prefix": "Taro.offWindowResize()",
+        "body": [
+            "Taro.offWindowResize(() => {",
+                "\tconsole.log('取消监听窗口尺寸变化事件')$0",
+            "});"
+        ],
+        "description": "Taro-取消监听窗口尺寸变化事件"
+    },
+    "Taro-动态加载字体": {
+        "prefix": "Taro.loadFontFace()",
+        "body": [
+            "Taro.loadFontFace({",
+                "\tfamily: 'Bitstream Vera Serif Bold',",
+                "\tsource: 'url()',",
+                "\tsuccess() {",
+                    "\t\tconsole.log('success')",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-动态加载字体"
+    },
+    "Taro-函数用于获取当前页面栈的实例": {
+        "prefix": "getCurrentPages()",
+        "body": [
+            "getCurrentPages()//关于获取页面的官方文档https://taro-docs.jd.com/taro/docs/2.x/apis/framework/getCurrentPages"
+        ],
+        "description": "Taro-函数用于获取当前页面栈的实例"
+    },
+    "Taro-保存文件到本地": {
+        "prefix": "Taro.saveFile()",
+        "body": [
+            "Taro.saveFile({",
+                "\ttempFilePath: tempFilePaths[0],",
+                "\tsuccess: function (res) {",
+                   "\t\tvar savedFilePath = res.savedFilePath;",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-保存文件到本地"
+    },
+    "Taro-获取本地已保存的文件列表": {
+        "prefix": "Taro.getSavedFileList()",
+        "body": [
+            "Taro.getSavedFileList({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.fileList);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-获取本地已保存的文件列表"
+    },
+    "Taro-获取本地文件的文件信息": {
+        "prefix": "Taro.getSavedFileInfo()",
+        "body": [
+            "Taro.getSavedFileInfo({",
+                "\tfilePath: 'Tarofile://somefile', //仅做示例用，非真正的文件路径",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.size);",
+                    "\t\tconsole.log(res.createTime);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-获取本地文件的文件信息"
+    }, 
+    "Taro-删除本地存储的文件": {
+        "prefix": "Taro.removeSavedFile()",
+        "body": [
+            "Taro.removeSavedFile({",
+                "\tfilePath: res.fileList[0].filePath,",
+                "\tcomplete: function (res) {",
+                    "\t\tconsole.log(res);",
+                "\t}",
+            "});"
+        ],
+        "description": "Taro-删除本地存储的文件"
+    }, 
+    "Taro-获取文件信息": {
+        "prefix": "Taro.getFileInfo()",
+        "body": [
+            "Taro.Taro.getFileInfo({",
+                "\tfilePath: res.fileList[0].filePath,",
+            "});"
+        ],
+        "description": "Taro-获取文件信息"
+    }, 
+    "Taro-新开页面打开文档,支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx。": {
+        "prefix": "openDocument()",
+        "body": [
+            "openDocument({",
+                "\tfilePath: filePath,",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('打开文档成功');",
+                "\t})",
+            "});"
+        ],
+        "description": "Taro-新开页面打开文档"
+    }
+}

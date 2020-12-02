@@ -1,0 +1,48 @@
+{
+    "name": "taro-api-snippets",
+    "displayName": "taro-api-snippets",
+    "description": "taro api提示",
+    "version": "1.0.0",
+    "publisher": "HaveYuan",
+    "icon": "images/taro.png",
+    "engines": {
+        "vscode": "^1.16.0"
+    },
+    "author": {
+        "email": "rory_lin@163.com",
+        "name": "HaveYuan",
+        "blog": "https://haveyuan.github.io/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HaveYuan/taro-api-snippets.git"
+    },
+    "keywords": [
+        "taro",
+        "snippet",
+        "api"
+    ],
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "javascriptreact",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "typescript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
